@@ -19,4 +19,4 @@ COPY ./src ./src
 RUN mvn package
 
 # set the startup command to run your binary
-CMD ["java", "-jar", "./target/donate-user-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "./target/park-account-0.0.1-SNAPSHOT.jar"]
