@@ -20,12 +20,19 @@ public class DonateLogic implements DonateService {
 		return (List<Donate>) donateRepository.findAll();
 	}
 
+	/*
 	@Override
 	@Transactional(readOnly=true)
 	public Donate findByDonateSeq(int donateSeq) {
 		return donateRepository.findByDonateSeq(donateSeq);
 	}
+	*/
 
+	@Override
+	@Transactional
+	public Donate register(Donate donate) {
+		return donateRepository.save(donate);
+	}
 	
 	/*
 
@@ -50,11 +57,6 @@ public class DonateLogic implements DonateService {
 		return accountRepository.findAll(pageable);
 	}
 
-	@Override
-	@Transactional
-	public Donate register(Donate account) {
-		return accountRepository.save(account);
-	}
 
 	@Override
 	@Transactional

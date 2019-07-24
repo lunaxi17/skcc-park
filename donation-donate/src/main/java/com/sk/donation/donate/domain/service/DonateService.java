@@ -8,7 +8,9 @@ public interface DonateService {
 	
 	List<Donate> findAll();
 	
-	Donate findByDonateSeq(int donateSeq);
+	//Donate findByDonateSeq(int donateSeq);
+	
+	Donate register(Donate donate);
 	
 	/*
 	Page<Donate> findAll(Pageable pageable);
@@ -16,7 +18,6 @@ public interface DonateService {
 	List<Donate> findByNameLike(String name);
 	Donate findByEmail(String email);
 	
-	Donate register(Donate account);
 	Donate update(Long id, Donate account);
 
 	void delete(Long id);

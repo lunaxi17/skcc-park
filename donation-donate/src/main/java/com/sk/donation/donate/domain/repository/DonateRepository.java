@@ -16,7 +16,7 @@ public interface DonateRepository extends PagingAndSortingRepository<Donate, Lon
 	
 	List<Donate> findAll(Predicate predicate);
 	
-	Donate findByDonateSeq(@Param("donateSeq") int donateSeq);
+	//Donate findByDonateSeq(@Param("donateSeq") int donateSeq);
 	
 	/*
 	List<Donate> findByNameLike(@Param("name") String name);

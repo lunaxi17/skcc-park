@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,18 +25,21 @@ public class DonateRestController implements DonateService {
 		return donateService.findAll(); 
 	}
 	
+	/*
 	@Override
 	@GetMapping("/search/donateSeq")
 	public Donate findByDonateSeq(@PathVariable("donateSeq") int donateSeq) {
 		return donateService.findByDonateSeq(donateSeq);
 	}
+	*/
 
-	/*
 	@Override
 	@PostMapping
-	public Donate register(@RequestBody Donate account) {
-		return accountService.register(account);
+	public Donate register(@RequestBody Donate donate) {
+		Donate reqDonate = new Donate(donate.getProdId(), donate.getUserId(), donate.getMrchtId(), donate.getAmount());
+		return donateService.register(reqDonate);
 	}
+	/*
 
 	@Override
 	@PutMapping("/{id}")
@@ -60,11 +65,6 @@ public class DonateRestController implements DonateService {
 		return accountService.findByEmail(email);
 	}
 
-	@Override
-	//@GetMapping
-	public Page<Donate> findAll(Pageable pageable) {
-		return accountService.findAll(pageable); 
-	}
 	 */
 
 }
