@@ -6,7 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.sk.donation.donate.base.AbstractEntity;
+import com.sk.donation.donate.util.DateUtil;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,15 +25,19 @@ public class Donate extends AbstractEntity {
 	// private Character donateState;
 	private int amount;
 	private Date regDate;
+	private Date updDate;
 
 	@Enumerated(EnumType.STRING)
 	private DonateState donateState;
+	
+	@Autowired
+	private static DateUtil dateUtil;
 
 	public Donate(String prodId, String userId, String mrchtId, int amount) {
-		this(prodId, userId, mrchtId, DonateState.REQUEST, amount, getNow());
+		this(prodId, userId, mrchtId, DonateState.REQUEST, amount, dateUtil.getNow(), dateUtil.getNow());
 	}
 
-	public Donate(String prodId, String userId, String mrchtId, DonateState donateState, int amount, Date regDate) {
+	public Donate(String prodId, String userId, String mrchtId, DonateState donateState, int amount, Date regDate, Date updDate) {
 		// this.donateSeq = donateSeq;
 		this.prodId = prodId;
 		this.userId = userId;
@@ -38,11 +45,7 @@ public class Donate extends AbstractEntity {
 		this.donateState = donateState;
 		this.amount = amount;
 		this.regDate = regDate;
-	}
-
-	private static Date getNow() {
-		Date date = new Date();
-		return date;
+		this.updDate = updDate;
 	}
 
 }

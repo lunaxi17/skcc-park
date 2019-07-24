@@ -2,24 +2,22 @@ package com.sk.donation.donate.domain.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.sk.donation.donate.domain.model.Donate;
 
 public interface DonateService {
 	
 	List<Donate> findAll();
 	
-	//Donate findByDonateSeq(int donateSeq);
+	Page<Donate> findAll(Pageable pageable);
+	
+	Donate findByDonateSeq(Long donateSeq);
 	
 	Donate register(Donate donate);
 	
-	/*
-	Page<Donate> findAll(Pageable pageable);
+	Donate update(Long donateSeq, Donate donate);
 	
-	List<Donate> findByNameLike(String name);
-	Donate findByEmail(String email);
-	
-	Donate update(Long id, Donate account);
-
-	void delete(Long id);
-	*/
+	void delete(Long donateSeq);
 }
