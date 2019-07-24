@@ -12,9 +12,9 @@ import lombok.EqualsAndHashCode;
 public abstract class AbstractEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	protected Long id;
+	protected Long donateSeq;
 
-	public Long getId() {
-		return id;
+	public Long getDonateSeq() {
+		return donateSeq;
 	}
 }

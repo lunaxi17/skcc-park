@@ -1,4 +1,4 @@
-package com.sk.donation.donate.account.application.sp.web;
+package com.sk.donation.donate.application.sp.web;
 
 import java.util.stream.Collectors;
 
